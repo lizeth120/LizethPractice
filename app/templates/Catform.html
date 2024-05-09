@@ -1,13 +1,17 @@
+<div style="background-color: #ebcee3;" >
+  
 {% extends "base.html" %}
 
 {% block body %}
+<div style="background-color: #ebcee3;" >
+  
 <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
 
 <img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
 <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
 
 <img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
-        <h1>Add a post!</h1>
+        <h1>Pick a Color!</h1>
 
         <div class="text-center">
 
@@ -15,35 +19,44 @@
         <form method=post>
             {{ form.hidden_tag() }}
             <p>
-                {{ form.subject.label }} <br>
-                {{ form.subject(size=64) }}
+                {{ form.color.label }} <br>
+                {{ form.color(size=64) }}
                 <!--List the errors for this field-->
-                {% for error in form.subject.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
+                {% for error in form.color.errors %}
+                    <span style="color: pink;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                Add your comments here <br>
-                {{ form.content(cols=64, rows=10) }}
+                {{ form.feeling.label }} <br>
+                {{ form.feeling(cols=64, rows=10) }}
                 <!--List the errors for this field-->
-                {% for error in form.content.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
+                {% for error in form.feeling.errors %}
+                    <span style="color: pink;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.tag.label }} <br>
-                {{ form.tag(size=64) }}
+                {{ form.category.label }} <br>
+                {{ form.category(cols=64, rows=10) }}
                 <!--List the errors for this field-->
-                {% for error in form.subject.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
+                {% for error in form.category.errors %}
+                    <span style="color: pink;">[{{ error }}]</span>
                 {% endfor %}
             </p>
-             <p>
-                <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
+            <p>
+                {{ form.contribution.label }} <br>
+                {{ form.contribution(cols=64, rows=10) }}
+                <!--List the errors for this field-->
+                {% for error in form.contribution.errors %}
+                    <span style="color: pink;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
+            <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
                 <img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
                 <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
                 <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
-
+                
+  
 <img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
 <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
 

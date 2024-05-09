@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if cat %}
+    {{moment(cat.create_date).calendar()}} by {{cat.author.fname}} {{cat.author.lname}} 
+    {% if cat.modifydate %}
+        modified {{moment(cat.modifydate).calendar()}}
+    {% endif %}
+    <br>
+    {% if cat.author == current_user %}
+        <a data-toggle="tooltip" data-placement="top" title="Delete cat" href="/cat/delete/{{cat.id}}">
+            <img width="40" class="bottom-image" src="/static/delete.png">
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Edit Cat" href="/cat/edit/{{cat.id}}">
+            <img width="40" class="bottom-image" src="/static/edit.png">
+        </a>
+    {% endif %}
+
+    <h1 class="display-5">{{cat.color}}</h1>
+    <p class="fs-3 text-break">
+        {% if cat.author.image %}
+            <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(cat.author.image.read())}}">
+        {% endif %}
+            {{cat.category}} <br>
+            {{cat.feeling}}
+           {{cat.contribution}}
+
+    </p>
+    
+{% else %}
+
+{% endif %}
+
+{% endblock %}

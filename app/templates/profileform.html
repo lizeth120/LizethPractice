@@ -1,3 +1,4 @@
+<div style="background-color: #ebcee3;" >
 {% extends 'base.html' %}
 
 {% block body %}
@@ -13,6 +14,32 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(size=64) }}<br>
+            {% for error in form.title.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.reflection.label }}<br>
+            {{ form.reflection(size=64) }}<br>
+            {% for error in form.reflection.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+
+        <p>
+            {{ form.goal.label }}<br>
+            {{ form.goal(size=64) }}<br>
+            {% for error in form.goal.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
         <p>
             {{ form.lname.label }}<br>
             {{ form.lname() }}<br>
@@ -34,6 +61,7 @@
             {% endfor %}
         </p>
         <p>{{ form.submit() }}</p>
+      
     </form>
 
 {% endblock %}

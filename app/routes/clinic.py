@@ -127,5 +127,5 @@ def clinicEdit(clinicID):
     form.state.data = editClinic.state
     form.zipcode.data = editClinic.zipcode
     form.description.data = editClinic.description
-
+    
     return render_template('clinicform.html',form=form)

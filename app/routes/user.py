@@ -31,8 +31,9 @@ def profileEdit():
         currUser = User.objects.get(id=current_user.id)
         # This updates the data on the user record that was collected from the form
         currUser.update(
-            lname = form.lname.data,
-            fname = form.fname.data,
+            goal = form.goal.data,
+            reflection = form.reflection.data,
+            title = form.title.data,
         )
         # This updates the profile image
         if form.image.data:
@@ -46,7 +47,8 @@ def profileEdit():
 
     # If the form was not submitted this prepopulates a few fields
     # then sends the user to the page with the edit profile form
-    form.fname.data = current_user.fname
-    form.lname.data = current_user.lname
+    form.goal.data = current_user.goal
+    form.reflection.data = current_user.reflection
+    form.title.data = current_user.title
 
     return render_template('profileform.html', form=form)

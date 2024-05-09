@@ -34,6 +34,9 @@ class User(UserMixin, Document):
     adult_fname = StringField()
     adult_lname = StringField()
     adult_email = StringField()
+    reflection = StringField()
+    title = StringField()
+    goal = StringField()
     consent = BooleanField(default=False)
 
     meta = {
@@ -59,6 +62,19 @@ class Blog(Document):
     subject = StringField()
     content = StringField()
     tag = StringField()
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
+    
+class Cat(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    color = StringField()
+    category = StringField()
+    feeling= StringField()
+    contribution= StringField()
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
 
